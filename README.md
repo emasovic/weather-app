@@ -1,4 +1,4 @@
-# Meteorological Web Application
+# Weather app
 
 ## Table of Contents
 
