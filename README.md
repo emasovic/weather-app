@@ -8,8 +8,6 @@
 - [Running the Application](#running-the-application)
 - [Testing the Application](#testing-the-application)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
