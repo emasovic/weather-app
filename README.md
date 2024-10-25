@@ -1,5 +1,3 @@
-# Weather app
-
 ## Table of Contents
 
 - [Overview](#overview)
