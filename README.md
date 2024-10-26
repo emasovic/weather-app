@@ -42,6 +42,13 @@ Before you begin, ensure you have the following installed on your system:
 - docker run -d -p 8001:8000 weather-app
 - docker run weather-app
 
+## Testing the sensor websocket service
+
+- make sure to install websocat
+- websocat ws://localhost:8000/ws/iot
+- once running submit payload
+- payload example: {"identifier": "LON-001", "sensor": "1", "date": "2024-05-28T15:22:18+02:00", "city": "London", "info": [{"category": "Humidity", "measurement": 56, "unit": "Percentage"}]}
+
 ## Testing the Application
 
 1. Ensure your virtual environment is activated (if using):
