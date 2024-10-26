@@ -47,7 +47,6 @@ class ForecastService:
         db_forecast = self.db.query(Forecast).filter(
             Forecast.id == forecast_id).first()
 
-        print('>>>>>>>db_forecast', db_forecast)
         if db_forecast is None:
             raise Exception("Forecast not found")
 

@@ -1,14 +1,9 @@
-from sqlalchemy import Column, Float, Date, ForeignKey, Integer, String
+from datetime import datetime
+from sqlalchemy import Column, DateTime, Float, Date, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from enum import Enum
 from .database import Base
-
-
-class MeasurementCategory(str, Enum):
-    TEMPERATURE = "temperature"
-    HUMIDITY = "humidity"
-    WIND = "wind"
 
 
 class City(Base):
@@ -44,11 +39,21 @@ class Sensor(Base):
     __tablename__ = "sensors"
     id = Column(Integer, primary_key=True)
     station_code = Column(String, ForeignKey("stations.code"), nullable=False)
-    category = Column(String, nullable=False)  # Use Enum
-    measurement = Column(Float, nullable=False)
-    unit = Column(String, nullable=False)
 
     station = relationship("Station", back_populates="sensors")
+    measurements = relationship("Measurement", back_populates="sensor")
+
+
+class Measurement(Base):
+    __tablename__ = "measurements"
+    id = Column(Integer, primary_key=True)
+    sensor_id = Column(Integer, ForeignKey("sensors.id"), nullable=False)
+    measurement_time = Column(DateTime, default=datetime.utcnow)
+    category = Column(String, nullable=False)
+    value = Column(Float, nullable=False)
+    unit = Column(String, nullable=False)
+
+    sensor = relationship("Sensor", back_populates="measurements")
 
 
 class Forecast(Base):

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from ..database.database import get_db
-from ..models.forecasts import ForecastResponseItem, ForecastPayload
-from ..services.forecast import ForecastService
+from ..models.forecasts import ForecastPayload
+from ..services.forecasts import ForecastService
 
 router = APIRouter()
 

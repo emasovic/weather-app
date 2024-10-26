@@ -39,6 +39,7 @@ Before you begin, ensure you have the following installed on your system:
 
 2. **Run the Docker Container**:
 
+- docker run -d -p 8001:8000 weather-app
 - docker run weather-app
 
 ## Testing the Application
